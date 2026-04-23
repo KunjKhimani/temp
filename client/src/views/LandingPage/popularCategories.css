@@ -1,0 +1,88 @@
+/* Base styling for the section */
+.explore {
+  background-color: #f9f9f9;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Title styling */
+.section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Flex container for service cards */
+.items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Service card styling */
+.service-card {
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 200px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  text-align: center;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+}
+
+/* Service image styling */
+.service-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+/* Line styling */
+.line {
+  height: 2px;
+  background-color: #0ca742;
+  margin: 10px auto;
+  width: 50%;
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.service-card:hover .line {
+  width: 80%;
+  background-color: #0ca742;
+}
+
+/* Service title styling */
+.service-title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+  margin: 10px 0;
+  transition: color 0.3s ease;
+}
+
+.service-card:hover .service-title {
+  color: #0ca742;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .items {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .service-card {
+    width: 100%;
+  }
+}

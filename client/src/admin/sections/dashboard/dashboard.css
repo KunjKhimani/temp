@@ -1,0 +1,184 @@
+/* Dashboard styles */
+.dashboard {
+  padding: 2rem;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f8f9fa;
+}
+
+.dashboard-header {
+  margin-bottom: 2rem;
+}
+
+.dashboard-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.dashboard-header p {
+  font-size: 1.1rem;
+  color: #666;
+}
+
+/* Summary cards grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Summary cards */
+.summary-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.summary-card:hover {
+  transform: translateY(-5px);
+}
+
+.summary-icon {
+  font-size: 2rem;
+  margin-right: 1rem;
+  color: #007bff;
+  background: #e3f2fd;
+  padding: 0.8rem;
+  border-radius: 8px;
+}
+
+.summary-content h3 {
+  font-size: 1rem;
+  color: #666;
+  margin: 0 0 0.5rem 0;
+}
+
+.summary-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2c3e50;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.summary-change {
+  font-size: 0.85rem;
+  color: #28a745;
+  margin: 0;
+}
+
+/* Chart cards */
+.card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-header {
+  padding: 1.2rem;
+  border-bottom: 1px solid #eee;
+}
+
+.card-header h2 {
+  font-size: 1.2rem;
+  margin: 0;
+  color: #2c3e50;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.card-cols-1 {
+  grid-column: span 1;
+}
+
+.card-cols-2 {
+  grid-column: span 2;
+}
+
+.card-cols-3 {
+  grid-column: span 3;
+}
+
+/* Stats display in card header */
+.card-stats {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.card-stat {
+  text-align: right;
+}
+
+.card-stat-label {
+  font-size: 0.75rem;
+  color: #888;
+  display: block;
+}
+
+.card-stat-value {
+  font-weight: bold;
+  color: #333;
+  font-size: 1rem;
+}
+
+/* State indicators */
+.loading,
+.empty,
+.error {
+  text-align: center;
+  padding: 3rem;
+  color: #666;
+  font-size: 1rem;
+}
+
+.error {
+  color: #dc3545;
+}
+
+/* Recharts customization */
+.recharts-wrapper {
+  outline: none;
+}
+
+.recharts-cartesian-axis-tick-text {
+  fill: #666;
+  font-size: 12px;
+}
+
+.recharts-tooltip-item-swatch {
+  border-radius: 4px !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .summary-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .summary-icon {
+    margin-bottom: 0.5rem;
+  }
+
+  .card-header h2 {
+    font-size: 1rem;
+  }
+
+  .card-stat {
+    font-size: 0.8rem;
+  }
+}

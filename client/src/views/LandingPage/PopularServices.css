@@ -1,0 +1,12 @@
+.carousel-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-container {
+  padding: 20px 0;
+}
+
+.custom-dot-list-style {
+  bottom: -20px;
+}
