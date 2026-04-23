@@ -10,7 +10,7 @@ const { initializeSocketIO } = require("./socketSetup");
 const { errorHandler, notFound } = require("./middleware/error.js");
 const seedAdmin = require("./bootstrap/seeder.js");
 
-// --- IMPORT THE INITIALIZER FROM YOUR ROUTES FOLDER ---
+// --- IMPORT THE INITIALIZER FROM YOUR ROUTES FOLDER 
 const initializeApiRoutes = require("./route/index.js");
 const { startPromotionCron } = require("./cron/promotionCron.js");
 const { startCommunityExpiryCron } = require("./cron/communityExpiryCron.js");
