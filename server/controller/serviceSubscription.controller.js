@@ -64,6 +64,8 @@ const createServiceSubscription = async (req, res) => {
       amount: service.price * 100, // cents
       frequency: frequency
     });
+    
+    console.log("[ServiceSubscription] Square Plan Created/Found:", JSON.stringify(planResp, null, 2));
     const planId = planResp.catalog_object.id;
 
     // 4. Start Square Subscription

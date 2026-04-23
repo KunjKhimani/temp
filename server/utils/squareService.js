@@ -160,17 +160,16 @@ const createCatalogObject = async (payload) => {
 };
 
 const upsertSubscriptionPlan = async ({ name, amount, frequency }) => {
-  // cadence: WEEKLY, MONTHLY, etc.
   const cadence = frequency.toUpperCase() === "WEEKLY" ? "WEEKLY" : "MONTHLY";
-  
   const idempotencyKey = `plan-${name.replace(/\s+/g, '-').toLowerCase()}-${amount}-${cadence}`;
 
+  // We create a Subscription Plan Variation which is what the Subscription API actually uses.
   const payload = {
     idempotency_key: idempotencyKey,
     object: {
-      type: "SUBSCRIPTION_PLAN",
-      id: `#plan`,
-      subscription_plan_data: {
+      type: "SUBSCRIPTION_PLAN_VARIATION",
+      id: "#variation",
+      subscription_plan_variation_data: {
         name: `${name} (${frequency})`,
         phases: [
           {
@@ -180,9 +179,19 @@ const upsertSubscriptionPlan = async ({ name, amount, frequency }) => {
               currency: "USD"
             }
           }
-        ]
+        ],
+        subscription_plan_id: "#plan"
       }
-    }
+    },
+    included_objects: [
+      {
+        type: "SUBSCRIPTION_PLAN",
+        id: "#plan",
+        subscription_plan_data: {
+          name: name
+        }
+      }
+    ]
   };
 
   return createCatalogObject(payload);
@@ -196,7 +205,7 @@ const createSubscription = async ({ customerId, planId, locationId, startDate, i
     idempotency_key: idempotencyKey || `sub-${Date.now()}`,
     location_id: locationId || configLocationId,
     customer_id: customerId,
-    plan_id: planId,
+    plan_variation_id: planId, // Square now requires plan_variation_id
   };
 
   if (startDate) payload.start_date = startDate;
